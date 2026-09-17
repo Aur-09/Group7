@@ -1,352 +1,1130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Eloquent Ear | Public Speaking Training</title>
-  
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png" />
-  <!-- Meta -->
-  <meta name="description" content="Eloquent Ear — public speaking training for founders, entrepreneurs and startup teams. Coaching, workshops and on-stage confidence." />
-  <meta name="theme-color" content="#d4af37" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="Eloquent Ear | Public Speaking Training" />
-  <meta property="og:description" content="Coaching and workshops to help founders and teams speak with clarity, confidence and impact." />
-  <meta property="og:image" content="logo.png" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://yourdomain.com/eloquent-ear/index.html" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Eloquent Ear | Representing You. Elevating You.</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            light: '#e6ca85',
+                            DEFAULT: '#c5a059',
+                            hover: '#b08b43',
+                            dark: '#8c6b28',
+                            accent: '#dfb76c'
+                        },
+                        charcoal: {
+                            light: '#1f242d',
+                            DEFAULT: '#0f1115',
+                            dark: '#08090b',
+                            card: '#161920'
+                        },
+                        offwhite: '#f8f9fa'
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gold-gradient': 'linear-gradient(135deg, #dfb76c 0%, #c5a059 50%, #9a7331 100%)',
+                        'gold-gradient-hover': 'linear-gradient(135deg, #ebd08d 0%, #d4af37 50%, #ad8238 100%)',
+                        'dark-card-gradient': 'linear-gradient(180deg, rgba(31,36,45,0.7) 0%, rgba(15,17,21,0.9) 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
+        }
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #f3e0aa 0%, #c5a059 50%, #9a7b38 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(197, 160, 89, 0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
 </head>
-<body>
-  <!-- Loading Screen -->
-  <div id="loader" class="loader-wrapper">
-    <div class="loader">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <p class="loader-text">Loading...</p>
-  </div>
+<body class="bg-offwhite text-gray-800 font-sans antialiased selection:bg-gold selection:text-white">
 
-  <!-- Entry Quiz Overlay -->
-  <div id="entryQuizOverlay" class="entry-quiz-overlay">
-    <div class="entry-quiz-card">
-      <p class="eyebrow">Welcome to Eloquent Ear</p>
-      <h2 class="gradient-text">Find the support you need.</h2>
-      <p>Select the options that best describe your goals so we can guide you to the right page.</p>
-      <p class="quiz-instructions"><i class="fas fa-hand-pointer"></i> Tap an option to continue</p>
-      <div class="quiz-summary">
-        <span id="quizStep">1</span> / 3
-      </div>
-      <div id="quizQuestion" class="quiz-question">What is your primary goal?</div>
-      <div id="quizOptions" class="quiz-options"></div>
-    </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="logo.png" alt="The Eloquent Ear" class="brand-logo" />
-        <div>
-          <span class="brand-name">The Eloquent Ear</span>
-          <small class="brand-tagline">Public speaking training</small>
-        </div>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="./index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="./faq.html">FAQ</a></li>
-          <li class="nav-item">
-            <a class="nav-link btn-nav-cta" href="./contact.html">
-              <i class="fas fa-envelope"></i> Contact
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="row align-items-center min-vh-75">
-        <div class="col-lg-7 hero-content" data-aos="fade-up">
-          <p class="eyebrow"><i class="fas fa-microphone-alt"></i> Speak with confidence</p>
-          <h1 class="hero-title">
-            Transform your voice into <br />
-            <span class="gradient-text">your strongest advantage.</span>
-          </h1>
-          <p class="hero-text">
-            Eloquent Ear helps founders, entrepreneurs, and startup teams develop powerful presentation skills, 
-            persuasive storytelling, and stage confidence through coaching, workshops, and ongoing support.
-          </p>
-          <div class="hero-actions">
-            <a href="https://api.whatsapp.com/send?phone=27715181974&text=Hello%2C%20I%20would%20like%20to%20book%20a%20session%20with%20Eloquent%20Ear." 
-               class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-              <i class="fab fa-whatsapp"></i> Book Your Session
-            </a>
-            <a href="services.html" class="btn btn-outline-light btn-lg">See how it works <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
-          <div class="hero-card">
-            <h3><i class="fas fa-users"></i> Who this is for</h3>
-            <ul class="hero-list">
-              <li><i class="fas fa-check-circle text-gold"></i> Entrepreneurs pitching ideas</li>
-              <li><i class="fas fa-check-circle text-gold"></i> Founders preparing investor presentations</li>
-              <li><i class="fas fa-check-circle text-gold"></i> Startup teams sharing their vision</li>
-              <li><i class="fas fa-check-circle text-gold"></i> Anyone wanting clear, confident delivery</li>
-            </ul>
-            <div class="hero-stats">
-              <div class="stat-item">
-                <span class="stat-number">100+</span>
-                <span class="stat-label">Coaching hours</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number">50+</span>
-                <span class="stat-label">Founders coached</span>
-              </div>
+    <!-- Top Announcement Bar -->
+    <div class="bg-charcoal-dark text-gray-300 text-xs py-2 px-4 border-b border-gold/20 flex justify-between items-center z-50 relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <span class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-gold font-medium">Discreet Representation:</span> Accepting high-stakes Q3 & Q4 presentation bookings.
+            </span>
+            <div class="hidden sm:flex items-center space-x-6 text-xs text-gray-400">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-gold"></i> 100% NDA Protection</span>
+                <a href="#contact" class="hover:text-gold transition">Inquire Urgently &rarr;</a>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    <!-- Animated Background -->
-    <div class="particles-bg"></div>
-  </section>
 
-  <!-- Services Section -->
-  <section id="services" class="section services-section">
-    <div class="container">
-      <div class="text-center section-heading" data-aos="fade-up">
-        <p class="eyebrow"><i class="fas fa-cog"></i> What we offer</p>
-        <h2>Training designed around <span class="gradient-text">your voice</span> and audience.</h2>
-        <p class="section-subtitle">Practical, personalized coaching to help you communicate with impact</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card service-card h-100 text-center">
-            <div class="card-icon"><i class="fas fa-user-graduate"></i></div>
-            <h3>Personal coaching</h3>
-            <p>One-on-one sessions focused on preparation, body language, delivery, and feedback tailored to your goals.</p>
-            <a href="services.html" class="btn btn-outline-gold btn-sm">Learn more <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card service-card h-100 text-center">
-            <div class="card-icon"><i class="fas fa-users"></i></div>
-            <h3>Presentation workshops</h3>
-            <p>Interactive group workshops that teach effective structure, storytelling, and audience connection.</p>
-            <a href="services.html" class="btn btn-outline-gold btn-sm">Learn more <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="card service-card h-100 text-center">
-            <div class="card-icon"><i class="fas fa-trophy"></i></div>
-            <h3>On-stage confidence</h3>
-            <p>Build presence, reduce nerves, and learn techniques for commanding attention in any room.</p>
-            <a href="services.html" class="btn btn-outline-gold btn-sm">Learn more <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-charcoal/95 backdrop-blur-md border-b border-gold/20 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-4 group h-14 transition-transform duration-300 hover:scale-[1.02]">
+                    <img src="logo2.png" alt="The Eloquent Ear Icon" class="h-12 sm:h-14 w-auto object-contain drop-shadow-md">
+                    <div class="hidden sm:flex flex-col justify-center">
+                        <span class="font-serif text-white font-bold text-lg sm:text-xl tracking-[0.15em] leading-none mb-1.5">THE ELOQUENT EAR</span>
+                        <span class="text-gold text-[8px] sm:text-[9px] font-sans font-bold uppercase tracking-[0.3em] leading-none">Representing You. Elevating You.</span>
+                    </div>
+                </a>
 
-  <!-- Approach Section -->
-  <section id="approach" class="section approach-section">
-    <div class="container">
-      <div class="text-center section-heading" data-aos="fade-up">
-        <p class="eyebrow"><i class="fas fa-compass"></i> Our approach</p>
-        <h2>Practical training that sounds <span class="gradient-text">authentic</span> and feels natural.</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="process-step text-center">
-            <div class="step-number">1</div>
-            <h3>Discover your strengths</h3>
-            <p>We start by understanding your speaking style, strengths, and the audiences you want to influence.</p>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="process-step text-center">
-            <div class="step-number">2</div>
-            <h3>Practice with purpose</h3>
-            <p>Real-world exercises sharpen your message, delivery, and confidence in a safe learning environment.</p>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="process-step text-center">
-            <div class="step-number">3</div>
-            <h3>Own every stage</h3>
-            <p>From boardroom presentations to keynote talks, you'll leave ready to communicate clearly and convincingly.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#services" class="text-gray-300 hover:text-gold transition duration-200">Services</a>
+                    <a href="#journey" class="text-gray-300 hover:text-gold transition duration-200">The 3-Stage Journey</a>
+                    <a href="#pricing" class="text-gray-300 hover:text-gold transition duration-200">Pricing</a>
+                    <a href="#transformation" class="text-gray-300 hover:text-gold transition duration-200">Before & After</a>
+                    <a href="#faq" class="text-gray-300 hover:text-gold transition duration-200">FAQ</a>
+                </nav>
 
-  <!-- Projects Section -->
-  <section id="projects" class="section projects-section">
-    <div class="container">
-      <div class="text-center section-heading" data-aos="fade-up">
-        <p class="eyebrow"><i class="fas fa-code"></i> Selected projects</p>
-        <h2>A portfolio of <span class="gradient-text">curiosity and practice</span>.</h2>
-        <p class="section-subtitle">Explore selected AI, Python, web, and desktop application work.</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6" data-aos="fade-up">
-          <article class="card project-card h-100">
-            <div class="card-icon"><i class="fas fa-face-laugh-beam"></i></div>
-            <p class="project-number">01 / AWS AI &amp; ML</p>
-            <h3>Amigo: Life’s Better With a Laugh</h3>
-            <p>An AWS PartyRock generative-AI project exploring a friendly, humor-focused app experience.</p>
-            <a class="btn btn-outline-gold btn-sm" href="https://partyrock.aws/u/Noluthando123/RbzQM9bd8/Amigo%253A-Life%27s-Better-With-a-Laugh" target="_blank" rel="noopener noreferrer">Open live project <i class="fas fa-arrow-up-right-from-square"></i></a>
-          </article>
-        </div>
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <article class="card project-card h-100">
-            <div class="card-icon"><i class="fas fa-microphone-lines"></i></div>
-            <p class="project-number">02 / Group project</p>
-            <h3>The Eloquent Ear</h3>
-            <p>This portfolio site for public-speaking training includes the page structure, styling, interactions, and media contributed through the Group7 repository history.</p>
-            <a class="btn btn-outline-gold btn-sm" href="https://github.com/Enhlosweni-2025/Group7" target="_blank" rel="noopener noreferrer">View on GitHub <i class="fas fa-arrow-up-right-from-square"></i></a>
-          </article>
-        </div>
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <article class="card project-card h-100">
-            <div class="card-icon"><i class="fab fa-python"></i></div>
-            <p class="project-number">03 / AWS &amp; Udacity</p>
-            <h3>Introduction to OOP in Python</h3>
-            <p>A learning repository from the AWS AI Programmer Scholar journey, covering Python object-oriented programming and project exercises.</p>
-            <a class="btn btn-outline-gold btn-sm" href="https://github.com/Aur-09/Introduction-to-OOP-in-Python" target="_blank" rel="noopener noreferrer">View repository <i class="fas fa-arrow-up-right-from-square"></i></a>
-          </article>
-        </div>
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <article class="card project-card h-100">
-            <div class="card-icon"><i class="fas fa-list-check"></i></div>
-            <p class="project-number">04 / Team 11 assignment</p>
-            <h3>Kovsie's Study and Assignment Tracker</h3>
-            <p>A C# and .NET Windows Forms desktop application for managing modules, assignments, due dates, progress, and study schedules.</p>
-            <a class="btn btn-outline-gold btn-sm" href="https://github.com/Aur-09/ITSA-Hackathon-1st-Team-11" target="_blank" rel="noopener noreferrer">View repository <i class="fas fa-arrow-up-right-from-square"></i></a>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
+                <!-- Header CTA Button -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <button onclick="openModal('Book a Strategy Session')" class="bg-gold-gradient hover:bg-gold-gradient-hover text-charcoal-dark font-semibold text-xs uppercase tracking-widest px-5 py-3 rounded-sm shadow-lg transform hover:-translate-y-0.5 transition duration-200 flex items-center gap-2 border border-gold-light/30">
+                        <span>Book Strategy Session</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
 
-  <!-- Additional Info Section -->
-  <section class="section why-us-section">
-    <div class="container">
-      <div class="text-center section-heading" data-aos="fade-up">
-        <p class="eyebrow"><i class="fas fa-star"></i> Why choose Eloquent Ear</p>
-        <h2>Practical support for <span class="gradient-text">founders, teams, and future leaders</span>.</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="card mission-card h-100">
-            <h3>What makes us different</h3>
-            <ul class="hero-list">
-              <li><i class="fas fa-check-circle text-gold"></i> Practical communication coaching with measurable outcomes</li>
-              <li><i class="fas fa-check-circle text-gold"></i> Startup pitch workshops designed for founders</li>
-              <li><i class="fas fa-check-circle text-gold"></i> Confidence training for public speaking, interviews, and leadership moments</li>
-              <li><i class="fas fa-check-circle text-gold"></i> Tailored support for entrepreneurs, students, and professionals</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="card mission-card h-100">
-            <h3>Extra details</h3>
-            <p>Found in 2026 and based in Bloemfontein, Free State, South Africa, Eloquent Ear is building a strong foundation for transformational communication support.</p>
-            <p>We believe confident speakers are more persuasive, more memorable, and better equipped to grow meaningful opportunities.</p>
-            <div class="hero-actions">
-              <a href="blog.html" class="btn btn-outline-gold btn-sm">Read our insights</a>
-              <a href="about.html" class="btn btn-outline-light btn-sm">Meet the founders</a>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container text-center" data-aos="fade-up">
-      <h2>Ready to <span class="gradient-text">connect</span>?</h2>
-      <p class="cta-text">Book your session via WhatsApp or visit the contact page for full details and operating hours.</p>
-      <div class="hero-actions justify-content-center">
-        <a href="https://api.whatsapp.com/send?phone=27715181974&text=Hello%2C%20I%20would%20like%20to%20book%20a%20session%20with%20Eloquent%20Ear." 
-           class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-          <i class="fab fa-whatsapp"></i> Book Your Session
-        </a>
-        <a href="contact.html" class="btn btn-outline-light btn-lg">Contact page <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </section>
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-charcoal border-b border-gold/20 px-4 pt-2 pb-6 space-y-3">
+            <a href="#services" class="block text-gray-300 hover:text-gold py-2 text-sm">Services</a>
+            <a href="#journey" class="block text-gray-300 hover:text-gold py-2 text-sm">The 3-Stage Journey</a>
+            <a href="#pricing" class="block text-gray-300 hover:text-gold py-2 text-sm">Pricing</a>
+            <a href="#transformation" class="block text-gray-300 hover:text-gold py-2 text-sm">Before & After</a>
+            <a href="#faq" class="block text-gray-300 hover:text-gold py-2 text-sm">FAQ</a>
+            <button onclick="openModal('Book Strategy Session')" class="w-full mt-3 bg-gold-gradient text-charcoal-dark font-bold text-xs uppercase tracking-wider py-3 rounded-sm text-center">
+                Book a Strategy Session
+            </button>
+        </div>
+    </header>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <img src="logo.png" alt="The Eloquent Ear" class="footer-logo" />
-          <p class="footer-about">Training public speakers to be memorable, confident, and clear.</p>
-        </div>
-        <div class="col-md-4">
-          <h4>Quick Links</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h4>Connect With Us</h4>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://x.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit X"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://api.whatsapp.com/send?phone=27715181974" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          </div>
-          <p class="mt-3"><a href="./index.html" class="btn btn-outline-gold btn-sm">Back to Home</a></p>
-          <p class="footer-contact"><i class="fas fa-phone"></i> +27 71 518 1974</p>
-          <p class="footer-contact"><i class="fas fa-envelope"></i> nothathembi01@gmail.com</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 The Eloquent Ear. All rights reserved.</p>
-        <div class="footer-legal-links">
-          <a href="legal.html#privacy-policy">Privacy Policy</a>
-          <a href="legal.html#popia-notice">POPIA</a>
-          <a href="legal.html#terms-conditions">Terms & Conditions</a>
-          <a href="legal.html#copyright-policy">Copyright</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <!-- SECTION A: HERO SECTION -->
+    <section class="relative bg-charcoal text-white overflow-hidden pt-12 pb-24 lg:pt-20 lg:pb-32 bg-grid-pattern border-b border-gold/10">
+        <!-- Background Ambient Glows -->
+        <div class="absolute top-1/4 right-10 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-80 h-80 bg-gold/5 rounded-full blur-2xl pointer-events-none"></div>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JS -->
-  <script src="script.js"></script>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Content -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold text-xs uppercase tracking-widest font-semibold">
+                        <i class="fa-solid fa-crown text-gold"></i> Premium Proxy & Presentation Agency
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Your Story. <br />
+                        Your Vision. <br />
+                        <span class="gold-text-gradient italic">Flawlessly Delivered.</span>
+                    </h1>
+
+                    <p class="text-gray-300 text-lg sm:text-xl font-light leading-relaxed max-w-2xl">
+                        We design high-impact presentations and step onto the stage on your behalf—so your work gets the spotlight while you keep your peace of mind.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a href="#contact" class="bg-gold-gradient hover:bg-gold-gradient-hover text-charcoal-dark font-bold text-sm uppercase tracking-wider px-8 py-4 rounded-sm shadow-xl flex items-center justify-center gap-3 transition transform hover:-translate-y-0.5 border border-gold-light/40">
+                            <span>Get Presentation Support</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#journey" class="border border-gold/40 hover:border-gold text-gold hover:text-white hover:bg-gold/10 font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-sm transition flex items-center justify-center gap-2">
+                            <span>Explore How It Works</span>
+                            <i class="fa-solid fa-compass"></i>
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats Bar -->
+                    <div class="pt-8 border-t border-gray-800/80 grid grid-cols-3 gap-6">
+                        <div>
+                            <div class="font-serif text-2xl font-bold text-white">100%</div>
+                            <div class="text-xs text-gray-400 mt-1">Confidential & NDA Secured</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-2xl font-bold text-gold">R0+</div>
+                            <div class="text-xs text-gray-400 mt-1">Pitch Funding Secured</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-2xl font-bold text-white">0%</div>
+                            <div class="text-xs text-gray-400 mt-1">Stage Fright Risk</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Visual Card/Stage Mockup -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none rounded-lg overflow-hidden border border-gold/30 shadow-2xl bg-charcoal-card gold-border-glow">
+                        <!-- Custom Artistic Mockup of Speaker on Stage -->
+                        <div class="relative h-[420px] bg-gradient-to-t from-charcoal-dark via-charcoal to-gray-900 flex flex-col justify-between p-6">
+                            
+                            <!-- Header overlay inside image frame -->
+                            <div class="flex justify-between items-start z-10">
+                                <div class="bg-charcoal-dark/80 backdrop-blur border border-gold/30 px-3 py-1.5 rounded text-[11px] font-mono text-gold flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                                    LIVE REPRESENTATION
+                                </div>
+                                <span class="text-xs text-gray-400 font-serif">Executive Keynote</span>
+                            </div>
+
+                            <!-- Geometric Visual Center Illustration -->
+                            <div class="my-auto text-center space-y-4 py-8 relative">
+                                <div class="w-24 h-24 mx-auto rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center relative">
+                                    <i class="fa-solid fa-microphone-lines text-4xl text-gold"></i>
+                                    <div class="absolute -inset-1 rounded-full border border-gold/20 animate-ping opacity-75"></div>
+                                </div>
+                                <div class="space-y-1">
+                                    <div class="text-xs font-mono uppercase text-gold tracking-widest">Proxy Presenter Executing</div>
+                                    <div class="text-white font-serif text-lg font-semibold">"Series A Investor Deck & Vision"</div>
+                                </div>
+                            </div>
+
+                            <!-- Footer inside mockup -->
+                            <div class="bg-charcoal-dark/90 p-3 rounded border border-gray-800 text-xs flex justify-between items-center z-10">
+                                <div class="flex items-center gap-2 text-gray-300">
+                                    <i class="fa-solid fa-user-shield text-gold"></i>
+                                    <span>Client Identity Protected</span>
+                                </div>
+                                <span class="text-gold font-bold">100% Seamless</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION B: PAIN POINT & REASSURANCE BANNER -->
+    <section class="bg-gradient-to-r from-charcoal-dark via-charcoal to-charcoal-dark text-white py-12 border-b border-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-charcoal-card/80 border border-gold/30 rounded-xl p-8 lg:p-10 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-bl-full pointer-events-none"></div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="lg:col-span-1 flex justify-center lg:justify-start">
+                        <div class="w-16 h-16 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-2xl shadow-inner">
+                            <i class="fa-solid fa-shield-cat"></i>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 space-y-2 text-center lg:text-left">
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug">
+                            High-stakes presentation coming up? <br class="hidden sm:inline" />
+                            <span class="text-gold">Stage fright shouldn't cost you your biggest opportunities.</span>
+                        </h2>
+                        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                            Whether it's a critical investor pitch, high-stakes tender proposal, or academic conference—your ideas deserve to be delivered with absolute authority. We are your discreet behind-the-scenes partner.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-4 flex justify-center lg:justify-end">
+                        <button onclick="openModal('Discreet Assessment')" class="w-full sm:w-auto bg-transparent border-2 border-gold text-gold hover:bg-gold hover:text-charcoal-dark font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded transition duration-200 shadow-md">
+                            Request Discreet Assessment
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION C: THE 3-STAGE EXPERIENCE (Interactive Section) -->
+    <section id="journey" class="py-20 bg-charcoal text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-semibold">The Core Service Arc</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold">The 3-Stage Experience</h2>
+                <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+                <p class="text-gray-400 text-sm sm:text-base">
+                    From complete presentation proxies to personal voice coaching—choose how you want to step onto the world stage.
+                </p>
+            </div>
+
+            <!-- Tab Navigation Header -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                
+                <!-- Stage 1 Button -->
+                <button onclick="switchTab('stage1')" id="tab-btn-stage1" class="tab-btn p-6 rounded-lg border transition-all text-left bg-charcoal-card border-gold shadow-lg relative">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-mono text-gold uppercase tracking-wider font-bold">Stage 1</span>
+                        <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] px-2.5 py-0.5 rounded-full uppercase font-bold">Available Now</span>
+                    </div>
+                    <div class="font-serif text-lg font-bold text-white mb-1">REPRESENTING YOU</div>
+                    <div class="text-xs text-gold font-medium uppercase tracking-widest mb-2">(Protect)</div>
+                    <p class="text-gray-400 text-xs">Full proxy presentation service. We craft your deck & speak on stage for you.</p>
+                </button>
+
+                <!-- Stage 2 Button -->
+                <button onclick="switchTab('stage2')" id="tab-btn-stage2" class="tab-btn p-6 rounded-lg border transition-all text-left bg-charcoal-card border-gray-800 hover:border-gold/50 relative">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-mono text-gold uppercase tracking-wider font-bold">Stage 2</span>
+                        <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] px-2.5 py-0.5 rounded-full uppercase font-bold">Available Now</span>
+                    </div>
+                    <div class="font-serif text-lg font-bold text-white mb-1">CO-PRESENTING</div>
+                    <div class="text-xs text-gold font-medium uppercase tracking-widest mb-2">(Partner)</div>
+                    <p class="text-gray-400 text-xs">Tag-team delivery. We handle narrative flow and guide you in comfortably.</p>
+                </button>
+
+                <!-- Stage 3 Button -->
+                <button onclick="switchTab('stage3')" id="tab-btn-stage3" class="tab-btn p-6 rounded-lg border transition-all text-left bg-charcoal-card border-gray-800 hover:border-gold/50 relative">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-mono text-gold uppercase tracking-wider font-bold">Stage 3</span>
+                        <span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] px-2.5 py-0.5 rounded-full uppercase font-bold">Launching Soon</span>
+                    </div>
+                    <div class="font-serif text-lg font-bold text-white mb-1">ELEVATING YOU</div>
+                    <div class="text-xs text-gold font-medium uppercase tracking-widest mb-2">(Power)</div>
+                    <p class="text-gray-400 text-xs">1-on-1 articulation & public speaking coaching to build long-term confidence.</p>
+                </button>
+
+            </div>
+
+            <!-- Interactive Tab Content Container -->
+            <div class="bg-charcoal-card border border-gold/30 rounded-xl p-8 sm:p-12 shadow-2xl relative">
+                
+                <!-- STAGE 1 CONTENT -->
+                <div id="tab-content-stage1" class="tab-content block">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 space-y-6">
+                            <div class="inline-block px-3 py-1 bg-gold/10 border border-gold/30 text-gold text-xs font-mono rounded">
+                                MODE: FULL PROXY REPRESENTATION
+                            </div>
+                            <h3 class="font-serif text-3xl font-bold text-white">
+                                Stage 1: Representing You <span class="text-gold">(Protect)</span>
+                            </h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                You don't have to endure public speaking anxiety or let delivery flaws weaken your genius. With Stage 1, we absorb 100% of the stage pressure.
+                            </p>
+                            <ul class="space-y-3 text-sm text-gray-300">
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-check text-gold mt-1"></i>
+                                    <span><strong>Deep Briefing & Assimilation:</strong> We interview you to thoroughly master your domain knowledge, pitch structure, and target outcome.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-check text-gold mt-1"></i>
+                                    <span><strong>Complete Deck Redesign:</strong> Custom slides crafted for maximum visual authority.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-check text-gold mt-1"></i>
+                                    <span><strong>On-Stage / Screen Proxy:</strong> An articulate, highly polished speaker delivers your presentation on stage or virtually.</span>
+                                </li>
+                            </ul>
+                            <div class="pt-4 flex items-center gap-4">
+                                <button onclick="openModal('Stage 1 - Proxy Service')" class="bg-gold-gradient text-charcoal-dark font-bold text-xs uppercase tracking-wider px-6 py-3 rounded">
+                                    Book Stage 1 Proxy
+                                </button>
+                                <span class="text-xs text-gray-400"><i class="fa-solid fa-shield-halved text-gold"></i> Strict NDA Signed First</span>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 bg-charcoal p-6 rounded-lg border border-gray-800">
+                            <div class="font-serif text-sm text-gold font-semibold uppercase tracking-wider mb-4 border-b border-gray-800 pb-2">
+                                Stage 1 Deliverables Blueprint
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between text-xs p-3 bg-charcoal-card rounded border border-gray-800">
+                                    <span class="text-gray-300">Custom Slide Deck</span>
+                                    <span class="text-gold font-mono">Included</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs p-3 bg-charcoal-card rounded border border-gray-800">
+                                    <span class="text-gray-300">Speech Script & Q&A Prep</span>
+                                    <span class="text-gold font-mono">Included</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs p-3 bg-charcoal-card rounded border border-gray-800">
+                                    <span class="text-gray-300">On-Stage / Virtual Presenter</span>
+                                    <span class="text-gold font-mono">Included</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs p-3 bg-charcoal-card rounded border border-gray-800">
+                                    <span class="text-gray-300">Answering Difficult Panel Q&A</span>
+                                    <span class="text-gold font-mono">Handled</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STAGE 2 CONTENT -->
+                <div id="tab-content-stage2" class="tab-content hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 space-y-6">
+                            <div class="inline-block px-3 py-1 bg-gold/10 border border-gold/30 text-gold text-xs font-mono rounded">
+                                MODE: CO-PRESENTING & TAG-TEAM
+                            </div>
+                            <h3 class="font-serif text-3xl font-bold text-white">
+                                Stage 2: Co-Presenting <span class="text-gold">(Partner)</span>
+                            </h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Perfect for founders and executives who want to speak, but want a co-pilot on stage to manage narrative pacing, anchor the opening, and take over during tough moments.
+                            </p>
+                            <ul class="space-y-3 text-sm text-gray-300">
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-check text-gold mt-1"></i>
+                                    <span><strong>Structured Tag-Team Strategy:</strong> We command the opening narrative and warm up the room before introducing you smoothly.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-check text-gold mt-1"></i>
+                                    <span><strong>Comfort Spotlights:</strong> You speak only during your tailored comfort zones (e.g., technical deep dive or product demonstration).</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-check text-gold mt-1"></i>
+                                    <span><strong>Q&A Safeguard:</strong> We facilitate and moderate audience Q&A to ensure no curveball questions derail your moment.</span>
+                                </li>
+                            </ul>
+                            <div class="pt-4 flex items-center gap-4">
+                                <button onclick="openModal('Stage 2 - Co-Presenting')" class="bg-gold-gradient text-charcoal-dark font-bold text-xs uppercase tracking-wider px-6 py-3 rounded">
+                                    Book Stage 2 Co-Presenting
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 bg-charcoal p-6 rounded-lg border border-gray-800">
+                            <div class="font-serif text-sm text-gold font-semibold uppercase tracking-wider mb-4 border-b border-gray-800 pb-2">
+                                Stage 2 Workflow
+                            </div>
+                            <div class="space-y-4 text-xs">
+                                <div class="p-3 bg-charcoal-card rounded border border-gray-800">
+                                    <span class="text-gold font-bold block mb-1">1. Opening & Hook (We Present)</span>
+                                    <p class="text-gray-400">We set the mood, state the key problem, and capture total audience focus.</p>
+                                </div>
+                                <div class="p-3 bg-charcoal-card rounded border border-gray-800">
+                                    <span class="text-gold font-bold block mb-1">2. Core Innovation (You Speak)</span>
+                                    <p class="text-gray-400">You step in effortlessly for 3-5 structured minutes to share your core genius.</p>
+                                </div>
+                                <div class="p-3 bg-charcoal-card rounded border border-gray-800">
+                                    <span class="text-gold font-bold block mb-1">3. Closing & Q&A (Co-Pilot Mode)</span>
+                                    <p class="text-gray-400">We anchor the call-to-action and shield you from chaotic questioning.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STAGE 3 CONTENT (Waitlist Form) -->
+                <div id="tab-content-stage3" class="tab-content hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-6 space-y-6">
+                            <div class="inline-block px-3 py-1 bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-mono rounded">
+                                STATUS: LAUNCHING SOON
+                            </div>
+                            <h3 class="font-serif text-3xl font-bold text-white">
+                                Stage 3: Elevating You <span class="text-gold">(Power)</span>
+                            </h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Master stage presence, vocal projection, and articulation. Transform from stage-shy to a formidable speaker through personalized, private coaching.
+                            </p>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-star text-gold"></i> Executive Voice & Pacing Control</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-star text-gold"></i> Overcoming Micro-Panics & Stage Anxiety</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-star text-gold"></i> Body Language & Micro-Expressions</li>
+                            </ul>
+                        </div>
+
+                        <!-- Waitlist Box -->
+                        <div class="lg:col-span-6 bg-charcoal p-6 sm:p-8 rounded-lg border border-gold/40 shadow-xl">
+                            <h4 class="font-serif text-lg font-bold text-white mb-2">Join the VIP Coaching Waitlist</h4>
+                            <p class="text-xs text-gray-400 mb-6">Be the first to receive early access when Stage 3 launches limited slots.</p>
+
+                            <form onsubmit="handleWaitlist(event)" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Full Name</label>
+                                    <input type="text" required placeholder="e.g. Sarah Jenkins" class="w-full bg-charcoal-card border border-gray-700 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Email Address</label>
+                                    <input type="email" required placeholder="sarah@company.com" class="w-full bg-charcoal-card border border-gray-700 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
+                                </div>
+                                <button type="submit" class="w-full bg-gold-gradient text-charcoal-dark font-bold text-xs uppercase tracking-widest py-3.5 rounded hover:bg-gold-gradient-hover transition">
+                                    Join Waitlist
+                                </button>
+                                <p class="text-[11px] text-gray-500 text-center flex items-center justify-center gap-1 mt-2">
+                                    <i class="fa-solid fa-lock text-gold"></i> We respect your privacy. No spam, ever.
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION D: SERVICES & PACKAGES BREAKDOWN -->
+    <section id="services" class="py-20 bg-offwhite text-charcoal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-gold-dark uppercase tracking-widest text-xs font-bold">Transparent Tiers</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-charcoal-dark">Services & Packages</h2>
+                <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+                <p class="text-gray-600 text-sm sm:text-base">
+                    Tailored presentation solutions built for founders, professionals, and student pitch competitors.
+                </p>
+            </div>
+
+            <!-- 3 Key Tiers -->
+            <div id="pricing" class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Package 1: The Polish -->
+                <div class="bg-white rounded-xl border border-gray-200 p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:border-gold">
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center">
+                            <div class="w-12 h-12 rounded-lg bg-charcoal text-gold flex items-center justify-center text-xl shadow">
+                                <i class="fa-solid fa-pen-nib"></i>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-gray-400 uppercase tracking-widest">Entry Tier</span>
+                        </div>
+
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-charcoal">THE POLISH</h3>
+                            <p class="text-xs text-gold-dark font-semibold mt-1">Refine. Strengthen. Shine.</p>
+                        </div>
+
+                        <p class="text-gray-600 text-xs leading-relaxed">
+                            For presenters who want to deliver themselves, but need world-class slide design and sharp script pacing.
+                        </p>
+
+                        <div class="border-t border-b border-gray-100 py-4 space-y-3">
+                            <div class="flex items-center gap-3 text-xs text-gray-700">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>High-impact slide redesign</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-700">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>Script & narrative optimization</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-700">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>Delivery prompt cards</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-700">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>1 Virtual rehearsal feedback session</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-8 space-y-4">
+                        <div class="flex items-baseline justify-between">
+                            <span class="text-xs text-gray-500 uppercase font-medium">Starting From</span>
+                            <span class="font-serif text-2xl font-bold text-charcoal-dark">R1 200</span>
+                        </div>
+                        <button onclick="openModal('Package: The Polish')" class="w-full bg-charcoal hover:bg-gold hover:text-charcoal-dark text-white font-bold text-xs uppercase tracking-wider py-3.5 rounded transition duration-200">
+                            Select The Polish &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Package 2: The Proxy (Featured) -->
+                <div class="bg-charcoal text-white rounded-xl border-2 border-gold p-8 shadow-2xl flex flex-col justify-between relative transform md:-translate-y-2">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold-gradient text-charcoal-dark text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow">
+                        Most Popular
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center">
+                            <div class="w-12 h-12 rounded-lg bg-gold text-charcoal-dark flex items-center justify-center text-xl shadow">
+                                <i class="fa-solid fa-crown"></i>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-gold uppercase tracking-widest">Full Representation</span>
+                        </div>
+
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-white">THE PROXY</h3>
+                            <p class="text-xs text-gold font-semibold mt-1">We Present. You Win.</p>
+                        </div>
+
+                        <p class="text-gray-300 text-xs leading-relaxed">
+                            Complete hands-off representation. We design your deck, master your material, and present seamlessly on stage or virtually.
+                        </p>
+
+                        <div class="border-t border-b border-gray-800 py-4 space-y-3">
+                            <div class="flex items-center gap-3 text-xs text-gray-300">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>End-to-End Slide Deck Creation</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-300">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>Script Mastery & Domain Briefing</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-300">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>Professional Representative on Stage</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-300">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>Live Audience Q&A Handling</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-8 space-y-4">
+                        <div class="flex items-baseline justify-between">
+                            <span class="text-xs text-gray-400 uppercase font-medium">Starting From</span>
+                            <span class="font-serif text-2xl font-bold text-gold">R3 500</span>
+                        </div>
+                        <button onclick="openModal('Package: The Proxy')" class="w-full bg-gold-gradient hover:bg-gold-gradient-hover text-charcoal-dark font-bold text-xs uppercase tracking-wider py-3.5 rounded transition duration-200 shadow-lg">
+                            Secure Proxy Presenter &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Package 3: Pitch Contest Special -->
+                <div class="bg-white rounded-xl border border-gray-200 p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:border-gold">
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center">
+                            <div class="w-12 h-12 rounded-lg bg-charcoal text-gold flex items-center justify-center text-xl shadow">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-gray-400 uppercase tracking-widest">Student & Founders</span>
+                        </div>
+
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-charcoal">THE PITCH SPECIAL</h3>
+                            <p class="text-xs text-gold-dark font-semibold mt-1">Built for Student Entrepreneurs.</p>
+                        </div>
+
+                        <p class="text-gray-600 text-xs leading-relaxed">
+                            Tailored for campus competitions, incubator pitch-offs, and startup grant applications.
+                        </p>
+
+                        <div class="border-t border-b border-gray-100 py-4 space-y-3">
+                            <div class="flex items-center gap-3 text-xs text-gray-700">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>Tailored investor-ready pitch deck</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-700">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>Story & message coaching</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-700">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>Delivery by expert pitch proxy</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-gray-700">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span>Judge Q&A prep support</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-8 space-y-4">
+                        <div class="flex items-baseline justify-between">
+                            <span class="text-xs text-gray-500 uppercase font-medium">Starting From</span>
+                            <span class="font-serif text-2xl font-bold text-charcoal-dark">R2 200</span>
+                        </div>
+                        <button onclick="openModal('Package: Pitch Contest Special')" class="w-full bg-charcoal hover:bg-gold hover:text-charcoal-dark text-white font-bold text-xs uppercase tracking-wider py-3.5 rounded transition duration-200">
+                            Book Pitch Special &rarr;
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION E: CLIENT ONBOARDING, BEFORE/AFTER & TRUST BUILDING -->
+    <section id="transformation" class="py-20 bg-charcoal text-white border-t border-b border-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Confidentiality & Trust Badge -->
+                <div class="lg:col-span-5 space-y-8">
+                    
+                    <!-- Confidentiality Shield Box -->
+                    <div class="bg-charcoal-card border-2 border-gold/40 rounded-xl p-8 shadow-2xl relative overflow-hidden">
+                        <div class="w-12 h-12 rounded-full bg-gold/10 border border-gold flex items-center justify-center text-gold text-xl mb-4">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2">CONFIDENTIALITY GUARANTEE</h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-4">
+                            All business ideas, slide decks, proprietary metrics, and personal identity preferences remain <strong class="text-gold">100% confidential</strong> under strict, legally binding Non-Disclosure Agreements (NDA).
+                        </p>
+                        <div class="flex items-center gap-2 text-gold text-xs font-semibold uppercase tracking-wider">
+                            <i class="fa-solid fa-shield-halved"></i> Your Trust Is Our Core Priority
+                        </div>
+                    </div>
+
+                    <!-- Client Testimonial / Trust Quote -->
+                    <div class="p-6 border-l-2 border-gold bg-charcoal-card/40 rounded-r-lg">
+                        <p class="italic text-gray-300 text-sm mb-3">
+                            "I had a huge investor pitch but dreaded standing on stage due to intense anxiety. The Eloquent Ear presented my deck effortlessly—we secured our initial angel round."
+                        </p>
+                        <span class="text-xs font-bold text-gold uppercase tracking-wider">— Tech Founder, Johannesburg</span>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Interactive Before & After Deck Visualizer -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <span class="text-gold uppercase tracking-widest text-xs font-semibold">Slide Transformation</span>
+                        <h3 class="font-serif text-3xl font-bold text-white mt-1">Before & After Deck Polish</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm mt-1">Toggle between standard messy slides and our high-converting executive designs.</p>
+                    </div>
+
+                    <!-- Visual Comparison Box -->
+                    <div class="bg-charcoal-card border border-gray-800 rounded-xl p-6 shadow-2xl">
+                        
+                        <!-- Toggle Controls -->
+                        <div class="flex justify-center gap-4 mb-6">
+                            <button id="btn-before" onclick="toggleTransformation('before')" class="px-5 py-2 rounded text-xs font-bold uppercase tracking-wider transition border border-gray-700 text-gray-400">
+                                Before (Cluttered Deck)
+                            </button>
+                            <button id="btn-after" onclick="toggleTransformation('after')" class="px-5 py-2 rounded text-xs font-bold uppercase tracking-wider transition bg-gold text-charcoal-dark font-extrabold shadow">
+                                After (Eloquent Ear Polish)
+                            </button>
+                        </div>
+
+                        <!-- Mockup Frame -->
+                        <div class="relative h-64 sm:h-80 rounded-lg overflow-hidden border border-gray-700 bg-black flex items-center justify-center p-4">
+                            
+                            <!-- BEFORE SLIDE DISPLAY -->
+                            <div id="slide-before" class="hidden w-full h-full bg-white text-gray-800 p-6 flex flex-col justify-between font-sans">
+                                <div>
+                                    <h4 class="text-red-600 font-bold text-sm underline mb-2">Our Solution & Features (Draft 1)</h4>
+                                    <p class="text-[10px] text-gray-600 mb-2">We have a very long paragraph explaining how our app works with lots of features and bullet points that people find hard to read during presentations...</p>
+                                    <ul class="text-[9px] list-disc pl-4 space-y-1 text-gray-700">
+                                        <li>Feature 1: AI Integration with smart logic</li>
+                                        <li>Feature 2: Cloud sync over TCP/IP</li>
+                                        <li>Feature 3: Multi-user role management</li>
+                                        <li>Feature 4: CSV exporting tools</li>
+                                    </ul>
+                                </div>
+                                <div class="text-[8px] text-gray-400 text-right">Confidential Slide 4</div>
+                            </div>
+
+                            <!-- AFTER SLIDE DISPLAY -->
+                            <div id="slide-after" class="w-full h-full bg-charcoal text-white p-8 flex flex-col justify-between font-serif relative border border-gold/30">
+                                <div class="flex justify-between items-center border-b border-gold/20 pb-2">
+                                    <span class="text-xs tracking-widest text-gold uppercase">The Architecture</span>
+                                    <span class="text-[10px] text-gray-500">THE ELOQUENT EAR DESIGN</span>
+                                </div>
+                                <div class="my-auto text-center space-y-2">
+                                    <h4 class="text-2xl font-bold tracking-tight text-white">OUR SOLUTION</h4>
+                                    <p class="text-xs text-gray-400 max-w-md mx-auto font-sans font-light">Simple. Scalable. Impactful.</p>
+                                    <div class="grid grid-cols-3 gap-3 pt-4 font-sans">
+                                        <div class="bg-charcoal-card p-2 rounded border border-gold/20">
+                                            <i class="fa-solid fa-bolt text-gold mb-1 text-xs"></i>
+                                            <div class="text-[10px] font-bold text-white">Fast</div>
+                                        </div>
+                                        <div class="bg-charcoal-card p-2 rounded border border-gold/20">
+                                            <i class="fa-solid fa-shield text-gold mb-1 text-xs"></i>
+                                            <div class="text-[10px] font-bold text-white">Secure</div>
+                                        </div>
+                                        <div class="bg-charcoal-card p-2 rounded border border-gold/20">
+                                            <i class="fa-solid fa-chart-line text-gold mb-1 text-xs"></i>
+                                            <div class="text-[10px] font-bold text-white">Scalable</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-[9px] text-gold tracking-widest text-right">ELEVATING YOUR VISION</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION F: FREQUENTLY ASKED QUESTIONS (FAQ) -->
+    <section id="faq" class="py-20 bg-offwhite text-charcoal">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center space-y-4 mb-12">
+                <span class="text-gold-dark uppercase tracking-widest text-xs font-bold">Clear Answers</span>
+                <h2 class="font-serif text-3xl font-bold text-charcoal-dark">Frequently Asked Questions</h2>
+                <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+            </div>
+
+            <div class="space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq1')" class="w-full p-5 text-left font-serif font-bold text-charcoal flex justify-between items-center hover:text-gold-dark transition">
+                        <span>How do you learn my business enough to present it accurately?</span>
+                        <i id="icon-faq1" class="fa-solid fa-plus text-gold"></i>
+                    </button>
+                    <div id="faq1" class="hidden p-5 pt-0 text-xs sm:text-sm text-gray-600 border-t border-gray-100 leading-relaxed">
+                        We conduct an intensive, structured 60-to-90 minute "Domain Briefing" session. We capture your core thesis, key data points, anticipated panel questions, and desired brand voice. We don't step on stage until you give 100% approval on the narrative script.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq2')" class="w-full p-5 text-left font-serif font-bold text-charcoal flex justify-between items-center hover:text-gold-dark transition">
+                        <span>Can you present on short notice?</span>
+                        <i id="icon-faq2" class="fa-solid fa-plus text-gold"></i>
+                    </button>
+                    <div id="faq2" class="hidden p-5 pt-0 text-xs sm:text-sm text-gray-600 border-t border-gray-100 leading-relaxed">
+                        Yes. We offer an Emergency Express Proxy dispatch for presentations occurring within 48 to 72 hours (subject to schedule availability and express rush fee).
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq3')" class="w-full p-5 text-left font-serif font-bold text-charcoal flex justify-between items-center hover:text-gold-dark transition">
+                        <span>Will I still have full control over the content?</span>
+                        <i id="icon-faq3" class="fa-solid fa-plus text-gold"></i>
+                    </button>
+                    <div id="faq3" class="hidden p-5 pt-0 text-xs sm:text-sm text-gray-600 border-t border-gray-100 leading-relaxed">
+                        Absolutely. You maintain final editorial sign-off on every slide, phrase, and data visualization. We act as your representative; nothing is delivered without your explicit green light.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq4')" class="w-full p-5 text-left font-serif font-bold text-charcoal flex justify-between items-center hover:text-gold-dark transition">
+                        <span>Do you sign a non-disclosure agreement (NDA)?</span>
+                        <i id="icon-faq4" class="fa-solid fa-plus text-gold"></i>
+                    </button>
+                    <div id="faq4" class="hidden p-5 pt-0 text-xs sm:text-sm text-gray-600 border-t border-gray-100 leading-relaxed">
+                        Yes, immediately. Before you share any pitch decks, business plans, or event details, we execute a mutual Non-Disclosure Agreement protecting all intellectual property and personal identity.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq5')" class="w-full p-5 text-left font-serif font-bold text-charcoal flex justify-between items-center hover:text-gold-dark transition">
+                        <span>Do you travel or present virtually?</span>
+                        <i id="icon-faq5" class="fa-solid fa-plus text-gold"></i>
+                    </button>
+                    <div id="faq5" class="hidden p-5 pt-0 text-xs sm:text-sm text-gray-600 border-t border-gray-100 leading-relaxed">
+                        Both. We handle live virtual webinars / Zoom pitch competitions globally, and provide on-site physical stage representation across major executive centers.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION G: CONTACT & INQUIRY FORM -->
+    <section id="contact" class="py-20 bg-charcoal text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-charcoal-card border border-gold/30 rounded-2xl p-8 sm:p-12 shadow-2xl relative">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Form Left Text -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <span class="text-gold uppercase tracking-widest text-xs font-semibold">Get In Touch</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold">Let's Create Impact Together</h2>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Tell us about your upcoming presentation or event. We'll evaluate your requirements and reach out within 12 hours under strict confidentiality.
+                        </p>
+
+                        <div class="space-y-4 pt-4 text-xs text-gray-300">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded bg-gold/10 border border-gold/30 flex items-center justify-center text-gold">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <span>inquiries@theeloquentear.com</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded bg-gold/10 border border-gold/30 flex items-center justify-center text-gold">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <span>Response Time: Within 12 Hours Guaranteed</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded bg-gold/10 border border-gold/30 flex items-center justify-center text-gold">
+                                    <i class="fa-solid fa-user-shield"></i>
+                                </div>
+                                <span>NDA Automatically Issued Upon Inquiry</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Inquiry Form -->
+                    <div class="lg:col-span-7">
+                        <form onsubmit="handleInquirySubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs uppercase font-semibold text-gray-300 mb-1">Full Name *</label>
+                                    <input type="text" required placeholder="John Doe" class="w-full bg-charcoal border border-gray-700 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase font-semibold text-gray-300 mb-1">Email Address *</label>
+                                    <input type="email" required placeholder="john@company.com" class="w-full bg-charcoal border border-gray-700 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs uppercase font-semibold text-gray-300 mb-1">Event / Presentation Date</label>
+                                    <input type="date" class="w-full bg-charcoal border border-gray-700 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase font-semibold text-gray-300 mb-1">Service Needed *</label>
+                                    <select required class="w-full bg-charcoal border border-gray-700 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
+                                        <option value="">Select an Option</option>
+                                        <option value="proxy">Stage 1: Proxy Representation</option>
+                                        <option value="copresent">Stage 2: Co-Presenting Partner</option>
+                                        <option value="polish">The Polish (Slide & Script Design)</option>
+                                        <option value="pitch">Pitch Contest Special</option>
+                                        <option value="coaching">Stage 3: Coaching Waitlist</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs uppercase font-semibold text-gray-300 mb-1">Tell us more about your presentation</label>
+                                <textarea rows="4" placeholder="Briefly describe audience, pitch context, key goals, or fears..." class="w-full bg-charcoal border border-gray-700 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-gold"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-gold-gradient hover:bg-gold-gradient-hover text-charcoal-dark font-extrabold text-xs uppercase tracking-widest py-4 rounded shadow-xl transition duration-200 flex items-center justify-center gap-2">
+                                <span>Send Confidential Inquiry</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-charcoal-dark border-t border-gold/20 py-12 text-gray-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-gray-800">
+                
+                <!-- Col 1: Logo & Tagline -->
+                <div class="space-y-4 md:col-span-1">
+                    <a href="#" class="inline-flex items-center gap-3 transition duration-300 hover:opacity-80">
+                        <img src="logo2.png" alt="The Eloquent Ear Icon" class="h-12 w-auto object-contain drop-shadow-md">
+                        <div class="flex flex-col justify-center">
+                            <span class="font-serif text-white font-bold text-base tracking-[0.15em] leading-none mb-1.5">THE ELOQUENT EAR</span>
+                            <span class="text-gold text-[7px] font-sans font-bold uppercase tracking-[0.25em] leading-none">Representing You. Elevating You.</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-500 text-[11px] leading-relaxed pr-4 pt-1">The premier discreet executive proxy & presentation design agency.</p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="font-serif text-white font-semibold uppercase tracking-wider mb-3">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="hover:text-gold transition">Services & Packages</a></li>
+                        <li><a href="#journey" class="hover:text-gold transition">The 3-Stage Journey</a></li>
+                        <li><a href="#pricing" class="hover:text-gold transition">Pricing Tiers</a></li>
+                        <li><a href="#transformation" class="hover:text-gold transition">Before & After Deck</a></li>
+                        <li><a href="#faq" class="hover:text-gold transition">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Social & Connect -->
+                <div>
+                    <h4 class="font-serif text-white font-semibold uppercase tracking-wider mb-3">Connect With Us</h4>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center text-gray-300 hover:text-gold hover:border-gold transition">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center text-gray-300 hover:text-gold hover:border-gold transition">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center text-gray-300 hover:text-gold hover:border-gold transition">
+                            <i class="fa-regular fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 4: Legal & Security -->
+                <div>
+                    <h4 class="font-serif text-white font-semibold uppercase tracking-wider mb-3">Legal & Security</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-gold transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Confidentiality Guarantee</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 text-center text-[11px] flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+                    <span class="text-gray-500">&copy; 2026 The Eloquent Ear. All rights reserved.</span>
+                    <span class="hidden sm:inline text-gray-700">|</span>
+                    <span class="text-gray-600">
+                        Site by <a href="#" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors duration-300 font-medium">GHOTTECH.Ashirai</a>
+                    </span>
+                </div>
+                <div class="text-gold font-mono">Designed for Distinction & Stage Excellence</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STRATEGY SESSION & BOOKING MODAL -->
+    <div id="bookingModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-charcoal border border-gold/40 rounded-xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="mb-6 space-y-1">
+                <span class="text-gold text-xs font-mono uppercase tracking-widest" id="modal-subtitle">Confidential Consultation</span>
+                <h3 class="font-serif text-2xl font-bold text-white" id="modal-title">Book a Strategy Session</h3>
+                <p class="text-gray-400 text-xs">Let's discuss how we can represent or elevate your upcoming presentation.</p>
+            </div>
+
+            <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Full Name</label>
+                    <input type="text" required placeholder="Enter name" class="w-full bg-charcoal-card border border-gray-700 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Email Address</label>
+                    <input type="email" required placeholder="Enter email" class="w-full bg-charcoal-card border border-gray-700 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Target Event Date</label>
+                    <input type="date" class="w-full bg-charcoal-card border border-gray-700 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
+                </div>
+                <button type="submit" class="w-full bg-gold-gradient text-charcoal-dark font-bold text-xs uppercase tracking-widest py-3.5 rounded hover:bg-gold-gradient-hover transition">
+                    Confirm Strategy Session
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 3-Stage Tab Switching
+        function switchTab(stageId) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            
+            // Show selected tab content
+            document.getElementById('tab-content-' + stageId).classList.remove('hidden');
+
+            // Reset tab button borders & backgrounds
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('border-gold', 'shadow-lg');
+                btn.classList.add('border-gray-800');
+            });
+
+            // Active button highlight
+            const activeBtn = document.getElementById('tab-btn-' + stageId);
+            activeBtn.classList.remove('border-gray-800');
+            activeBtn.classList.add('border-gold', 'shadow-lg');
+        }
+
+        // FAQ Accordion Toggle
+        function toggleFaq(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            } else {
+                el.classList.add('hidden');
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+            }
+        }
+
+        // Before & After Transformation Toggle
+        function toggleTransformation(view) {
+            const slideBefore = document.getElementById('slide-before');
+            const slideAfter = document.getElementById('slide-after');
+            const btnBefore = document.getElementById('btn-before');
+            const btnAfter = document.getElementById('btn-after');
+
+            if (view === 'before') {
+                slideBefore.classList.remove('hidden');
+                slideAfter.classList.add('hidden');
+                
+                btnBefore.className = 'px-5 py-2 rounded text-xs font-bold uppercase tracking-wider transition bg-gray-700 text-white shadow';
+                btnAfter.className = 'px-5 py-2 rounded text-xs font-bold uppercase tracking-wider transition border border-gray-700 text-gray-400';
+            } else {
+                slideBefore.classList.add('hidden');
+                slideAfter.classList.remove('hidden');
+
+                btnAfter.className = 'px-5 py-2 rounded text-xs font-bold uppercase tracking-wider transition bg-gold text-charcoal-dark font-extrabold shadow';
+                btnBefore.className = 'px-5 py-2 rounded text-xs font-bold uppercase tracking-wider transition border border-gray-700 text-gray-400';
+            }
+        }
+
+        // Modal Functionality
+        function openModal(serviceName) {
+            const modal = document.getElementById('bookingModal');
+            document.getElementById('modal-title').innerText = serviceName || 'Book a Strategy Session';
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        // Form Handlers
+        function handleInquirySubmit(e) {
+            e.preventDefault();
+            alert('Thank you for reaching out to The Eloquent Ear. Your inquiry has been securely logged under strict confidentiality. We will contact you within 12 hours.');
+            e.target.reset();
+        }
+
+        function handleWaitlist(e) {
+            e.preventDefault();
+            alert('You have been added to the VIP Waitlist for Stage 3 (Elevating You). We will notify you first upon opening.');
+            e.target.reset();
+        }
+
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            alert('Strategy session request received. Our principal representative will contact you shortly.');
+            closeModal();
+            e.target.reset();
+        }
+    </script>
 </body>
 </html>
